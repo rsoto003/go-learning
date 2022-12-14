@@ -53,4 +53,17 @@ func main() {
 
 	fmt.Println(lowercaseFullName)
 	fmt.Println(uppercaseFullName)
+
+	fmt.Println("------- arrays -------")
+	// "[...]" counts array items for you.
+	// arrays cannot be resized, as you have to explicitly define length of array in Go
+	// arrays can only contain values of the same types.
+	var myArray = [...]string{"First", "Second", "Third"}
+	fmt.Println(myArray)
+
+	myArrayCopy := myArray
+	myArray[2] = "Tuesday"
+
+	println(myArray[2])
+	println(myArrayCopy[2])
 }
