@@ -66,4 +66,44 @@ func main() {
 
 	println(myArray[2])
 	println(myArrayCopy[2])
+
+	fmt.Println("------- slices -------")
+	//slices are a similar data structure to arrays, big difference is that slices can change in size.
+	//to define a slice, it's the same format as arrays, just without the specified length.
+	var days = []string{"Monday", "Tuesday", "Wednesday"}
+	fmt.Println(days)
+
+	months := []string{"Jan", "Feb", "Mar"}
+	fmt.Println(months)
+
+	//can create an empty slice with specified length with the make() func
+	emptySlice := make([]string, 3)
+	fmt.Println(emptySlice)
+
+	//can add values to slice
+	months = append(months, "Apr", "May", "Jun")
+	fmt.Println(months)
+
+	//copy(newSlice, originalSlice) duplicates slice, but does not share same memory
+	//the examples below share the same memory, so modifying one slice updates the underlying array and causes the other slices generated to also be modified.
+	firstCopy := [3]string{"one", "two", "three"}
+	secondCopy := firstCopy[:]
+	thirdCopy := firstCopy[:]
+
+	fmt.Println(firstCopy)
+	fmt.Println(secondCopy)
+
+	firstCopy[0] = "one million"
+
+	fmt.Println(firstCopy)
+	fmt.Println(thirdCopy)
+
+	//can specify capacity with third parameter in make func
+	capacityExample := make([]string, 0, 10)
+	fmt.Println(capacityExample)
+
+	capacityExample = append(capacityExample, "one", "two", "three", "four", "five", "six")
+	lastThreeWords := capacityExample[2:5]
+
+	fmt.Println(lastThreeWords)
 }
