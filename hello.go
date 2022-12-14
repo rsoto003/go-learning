@@ -2,7 +2,10 @@
 package main
 
 //fmt is a built-in go package. provides input/output functions.
-import "fmt"
+import (
+	"fmt"
+	"strings"
+)
 
 //where program starts, as mentioned above.
 func main() {
@@ -16,12 +19,38 @@ func main() {
 	*/
 	const age = 28 //this method of declaring the variable makes Go determine the type. in this case, is int.
 	fmt.Println(age)
-	var name string //can declare variable without value, but must specify the type. if the variable is not assigned a value, it will default to whatever type is specified. i.e. int = 0, string = ""
-	name = "Ryan"
+	/*
+	 can declare variable without value, but must specify the type.
+	 if the variable is not assigned a value, it will default to whatever type is specified. i.e. int = 0, string = ""
+	 var name string
+	 name = "Ryan"
+	*/
+	var name string = "Ryan"
 	fmt.Println(name)
 	dogName, breed := "Rocky", "Jack Russell-Chihuahua mix" //short variable declaration mixed with multiple variable declarations on one line.
 	fmt.Println(dogName)
 	fmt.Println(breed)
 
 	//note - unused variables will throw an error and the program will not be able to compile.
+
+	fmt.Println(len(name))
+	fmt.Println("------- strings -------")
+	//can assign previous string to new variable. however, strings are immutable, so the string value cannot be updated. example below.
+	first := "test"
+	second := first
+
+	first = "another test"
+	fmt.Println(first)
+	fmt.Println(second)
+
+	//concatenating strings
+	var word = first + " " + second
+	fmt.Println(word)
+	fmt.Println(strings.HasPrefix("test", "te"))
+
+	lowercaseFullName := "ryan soto"
+	uppercaseFullName := strings.ToUpper(lowercaseFullName)
+
+	fmt.Println(lowercaseFullName)
+	fmt.Println(uppercaseFullName)
 }
