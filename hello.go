@@ -123,4 +123,44 @@ func main() {
 	agesMapV2 := map[string]int{"ryan": 29, "rocky": 10, "ariana": 27}
 	fmt.Println(agesMapV2)
 
+	fmt.Println("------- loops -------")
+	//go only has the for loop
+	for i := 0; i < 10; i++ {
+		fmt.Println(i)
+	}
+
+	monthsMap := map[int]string{1: "January", 2: "Febuary", 3: "March", 4: "April"}
+
+	//loop through monthsMap
+	for month := 1; month < len(monthsMap); month++ {
+		fmt.Println("The " + fmt.Sprintf("%d", month) + " is " + monthsMap[month])
+	}
+
+	//however, Go can simulate a while loop:
+	i := 0
+
+	for i < 10 {
+		fmt.Println(i)
+		i++
+	}
+
+	//can omit condition and use break to end loop:
+	p := 20
+
+	for p > i {
+		fmt.Println(p)
+
+		if p < 15 {
+			break
+		}
+
+		p--
+	}
+
+	//using range in for loops:
+	numbers := []int{1, 2, 3}
+
+	for i, num := range numbers {
+		fmt.Printf("%d: %d\n", i, num)
+	}
 }
