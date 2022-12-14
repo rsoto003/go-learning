@@ -106,4 +106,21 @@ func main() {
 	lastThreeWords := capacityExample[2:5]
 
 	fmt.Println(lastThreeWords)
+
+	fmt.Println("------- maps -------")
+	//other languages refer to maps as a dictionary, hash map or associative array.
+	//do not need to specify how many items a map can hold.
+	agesMap := make(map[string]int)
+
+	agesMap["ryan"] = 28
+
+	fmt.Println(agesMap)
+
+	delete(agesMap, "ryan")
+
+	fmt.Println(agesMap)
+
+	agesMapV2 := map[string]int{"ryan": 29, "rocky": 10, "ariana": 27}
+	fmt.Println(agesMapV2)
+
 }
