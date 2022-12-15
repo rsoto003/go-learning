@@ -184,4 +184,42 @@ func main() {
 	case 28:
 		fmt.Println("28 years old??")
 	}
+
+	fmt.Println("------- operators -------")
+	//very similar to javascript and other languages
+	//however, can no longer prepend unary operators to numbers like JS
+	// i.e. ++num
+
+	fmt.Println("------- structs -------")
+	//struct: type that contains one or more variables. we call them fields.
+	//example:
+	type Person struct {
+		Name string //important to use uppercase for the fields. if not uppercase, those fields are now private to the package,
+		Age  int    //and whenthe struct is passed to a function provided by another package, those fields cannot be accessed.
+	}
+
+	//initialize variable with that type after struct is defined:
+	ryan := Person{"ryan", 28}
+
+	fmt.Println(ryan)
+	fmt.Println(ryan.Age)
+
+	randomPerson := Person{Age: 100}
+	fmt.Println(randomPerson)
+
+	//with structs, you can use one struct inside of another
+	type fullName struct {
+		firstName string
+		lastName  string
+	}
+
+	me := fullName{"ryan", "soto"}
+
+	type Occupation struct {
+		Name  fullName
+		Title string
+	}
+
+	developer := Occupation{Name: me, Title: "Go Developer"}
+	fmt.Println(developer)
 }
