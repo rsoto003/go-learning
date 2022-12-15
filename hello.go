@@ -222,4 +222,43 @@ func main() {
 
 	developer := Occupation{Name: me, Title: "Go Developer"}
 	fmt.Println(developer)
+
+	fmt.Println("------- functions -------")
+	//currently there is only one function defined in this file.
+	//the main function, which is the entry point of the program. which makes it different from the other functions
+	//functions will have a custom name usually.
+	calculateSomething("*", 200, 25)
+
+	sum, diff := performOperations(1, 2)
+	fmt.Println(sum, diff)
+
+	total := sumNumbers(1, 2, 3, 4)
+	fmt.Println(total)
+}
+
+func calculateSomething(operand string, a int, b int) {
+	switch operand {
+	case "+":
+		fmt.Println(a + b)
+	case "-":
+		fmt.Println(a - b)
+	case "*":
+		fmt.Println(a * b)
+	case "/":
+		fmt.Println(a / b)
+	default:
+		fmt.Println("please enter an operand")
+	}
+}
+
+func performOperations(a int, b int) (int, int) {
+	return a + b, a - b
+}
+
+func sumNumbers(numbers ...int) int {
+	sum := 0
+	for _, number := range numbers {
+		sum += number
+	}
+	return sum
 }
