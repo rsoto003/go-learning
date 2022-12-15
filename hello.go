@@ -10,7 +10,7 @@ import (
 //where program starts, as mentioned above.
 func main() {
 	fmt.Println("Hello, world!")
-
+	fmt.Println("------- variables -------")
 	/*
 		variables
 		-can be defined at package or function level.
@@ -162,5 +162,26 @@ func main() {
 
 	for i, num := range numbers {
 		fmt.Printf("%d: %d\n", i, num)
+	}
+
+	fmt.Println("------- conditionals -------")
+	myAge := 28
+
+	if myAge < 30 {
+		fmt.Println("still in the clear")
+	} else if myAge > 25 {
+		fmt.Println("getting close...")
+	} else {
+		fmt.Println("well then...")
+	}
+
+	//switch statement:
+	switch myAge {
+	case 10:
+		fmt.Println("10 years old")
+	case 20:
+		fmt.Println("20 years old")
+	case 28:
+		fmt.Println("28 years old??")
 	}
 }
