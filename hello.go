@@ -234,6 +234,23 @@ func main() {
 
 	total := sumNumbers(1, 2, 3, 4)
 	fmt.Println(total)
+
+	fmt.Println("------- pointers -------")
+
+	rockyAge := 10
+
+	pointerTest := &rockyAge //pointer to variable, its memory address.
+	pointerValue := *pointerTest
+
+	fmt.Println(pointerValue)
+	//pointers are useful when you want to call a function, and pass the variable as a parameter.
+	//by default, Go copies the value of variables inside the function, so pointer code ex 1 below will not change the value of age. ex 2, however, will change the age because of pointers.
+	increment(rockyAge)
+	fmt.Println("without pointers:")
+	fmt.Println(rockyAge)
+	fmt.Println("now with pointers:")
+	incrementWithPointers(&rockyAge)
+
 }
 
 func calculateSomething(operand string, a int, b int) {
@@ -261,4 +278,14 @@ func sumNumbers(numbers ...int) int {
 		sum += number
 	}
 	return sum
+}
+
+/* pointers code ex #1 */
+func increment(a int) {
+	a = a + 1
+}
+
+/* pointers code ex #2 */
+func incrementWithPointers(a *int) {
+	*a = *a + 1
 }
