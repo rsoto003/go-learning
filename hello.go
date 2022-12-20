@@ -255,6 +255,7 @@ func main() {
 	// methods - functions that are assigned to a struct
 	peter := User{Age: 39, Name: "Peter Griffin"}
 	peter.Speak()
+	SaySomething(peter)
 }
 
 func calculateSomething(operand string, a int, b int) {
@@ -302,4 +303,13 @@ type User struct {
 
 func (u User) Speak() {
 	fmt.Println("Hello from " + u.Name)
+}
+
+/* interfaces */
+type Speaker interface {
+	Speak()
+}
+
+func SaySomething(s Speaker) {
+	s.Speak()
 }
