@@ -195,7 +195,7 @@ func main() {
 	//example:
 	type Person struct {
 		Name string //important to use uppercase for the fields. if not uppercase, those fields are now private to the package,
-		Age  int    //and whenthe struct is passed to a function provided by another package, those fields cannot be accessed.
+		Age  int    //and when the struct is passed to a function provided by another package, those fields cannot be accessed.
 	}
 
 	//initialize variable with that type after struct is defined:
@@ -251,6 +251,10 @@ func main() {
 	fmt.Println("now with pointers:")
 	incrementWithPointers(&rockyAge)
 
+	fmt.Println("------- methods -------")
+	// methods - functions that are assigned to a struct
+	peter := User{Age: 39, Name: "Peter Griffin"}
+	peter.Speak()
 }
 
 func calculateSomething(operand string, a int, b int) {
@@ -288,4 +292,14 @@ func increment(a int) {
 /* pointers code ex #2 */
 func incrementWithPointers(a *int) {
 	*a = *a + 1
+}
+
+/* methods */
+type User struct {
+	Name string
+	Age  int
+}
+
+func (u User) Speak() {
+	fmt.Println("Hello from " + u.Name)
 }
