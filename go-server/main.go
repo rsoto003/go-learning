@@ -19,8 +19,19 @@ func helloHandler(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintf(w, "hello!")
 }
 
-func formHandler() {
+func formHandler(w http.ResponseWriter, r *http.Request) {
+	if err := r.ParseForm(); err != nil {
+		fmt.Fprintf(w, "Parseform() err: %v", err)
+		return
+	}
+	fmt.Fprintf(w, "POST request successful")
+	name := r.FormValue("name")
+	email := r.FormValue("email")
+	address :=  r.FormValue("address")
 
+	fmt.Fprintf(w, "Name = %s\n", name)
+	fmt.Fprintf(w, "Email = %s\n", email)
+	fmt.Fprintf(w, "Address = %s\n", address)
 }
 
 func main() {
