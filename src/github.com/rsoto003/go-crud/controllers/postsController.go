@@ -8,9 +8,15 @@ import (
 
 func PostsCreate(c *gin.Context) {
 	//Get data off request body
+	var body struct {
+		Body string
+		Title string
+	}
+
+	c.Bind(&body)
 
 	//Create a post
-	post := models.Post{Title: "First Post :)", Body: "Learning Golang :)"}
+	post := models.Post{Title: body.Title, Body: body.Body	}
 	result := initializers.DB.Create(&post)
 
 	if result.Error != nil {
