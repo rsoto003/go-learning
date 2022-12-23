@@ -2,16 +2,12 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/joho/godotenv"
-	"log"
+	"github.com/rsoto003/go-learning/initializers"
 )
 
 func init() {
-	err := godotenv.Load()
-
-	if err != nil {
-		log.Fatal("Error loading .env file")
-	}
+	initializers.LoadEnvVariables()
+	initializers.ConnectToDB()
 }
 
 func main() {
