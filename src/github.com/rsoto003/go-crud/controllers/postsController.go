@@ -79,3 +79,20 @@ func PostsUpdate(c *gin.Context){
 		"post": post,
 	})
 }
+
+func DeletePost(c *gin.Context){
+	//get id off the url
+	id := c.Param("id")
+
+	//find post we want to delete
+	var post models.Post
+	initializers.DB.First(&post, id)
+
+	//delete post
+	initializers.DB.Model(&post).Delete(&post)
+
+	//respond with message stating post was deleted
+	c.JSON(200, gin.H{
+		"message": "ID of Post deleted: %id",
+	})
+}
